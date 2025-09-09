@@ -1,18 +1,32 @@
 const express = require("express");
 const app = express();
 
-const {adminAuth,userAuth}=require("./middlewares/auth");
-app.use("/admin",adminAuth );
 
-app.get("/user",userAuth,(req,res)=>{
-    res.send("User data");
+app.use("/",(err,req,res,next)=>{
+    if(err){
+        res.status(500).send("Something went wrong");
+    }
 })
-app.get("/admin/getAllData", (req, res) => {
-  res.send("All the data");
-});
-app.get("/admin/deleteUser", (req, res) => {
-  res.send("Delete a user");
-});
+
+app.get("/getUserData",(req,res)=>{
+//try{
+     throw new Error("jkbgdfkgbvas")
+       res.send("User data");
+//}catch(err){
+   // res.status(500).send("Something went wrong, we are working on it");
+//}
+    // Logic of DB call and get user data
+   
+  
+})
+app.use("/",(err,req,res,next)=>{
+    if(err){
+        res.status(500).send("Something went wrong2");
+    }
+})
+
+
+
 
 app.listen(7777, () => {
   console.log("Server is running on port 7777");

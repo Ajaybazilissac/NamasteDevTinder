@@ -32,3 +32,4 @@
 - Difference between app.use and app.all
 - Write a dummy auth middleware for auth
 - Write a dummy auth middleware for all user routes, except /user/login
+- Error handling using app.use("/",(err,req,res,next)={})
